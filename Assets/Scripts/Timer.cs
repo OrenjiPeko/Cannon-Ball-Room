@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour {
 
     public GameObject player;
     public GameObject explosion;
-    GameObject expCurrent;
+    public GameObject expCurrent;
 
     public Text timer;
     public Text score;
@@ -83,7 +83,10 @@ public class Timer : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        expCurrent.transform.localScale += new Vector3(2.5f, 2.5f, 2.5f) * Time.fixedDeltaTime;
+        if (expCurrent != null)
+        {
+            expCurrent.transform.localScale += new Vector3(2.5f, 2.5f, 2.5f) * Time.fixedDeltaTime;
+        }
     }
 
     IEnumerator Explode()

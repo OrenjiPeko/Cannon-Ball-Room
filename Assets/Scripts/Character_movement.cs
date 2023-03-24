@@ -14,7 +14,7 @@ public class Character_movement : MonoBehaviour {
 
     Transform touched;
     public GameObject Push;
-    GameObject currentPush;
+    public GameObject currentPush;
     bool canPush;
     
     // Use this for initialization
@@ -65,8 +65,10 @@ public class Character_movement : MonoBehaviour {
         {
             playerRB.velocity = Vector3.zero;
         }
-
-        currentPush.transform.localScale += new Vector3(25f, 25f, 25f) * Time.fixedDeltaTime;
+        if (currentPush != null) {
+            currentPush.transform.localScale += new Vector3(25f, 25f, 25f) * Time.fixedDeltaTime; 
+        }
+        
     }
 
     private void OnCollisionEnter(Collision collision)
